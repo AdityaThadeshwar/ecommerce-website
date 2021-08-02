@@ -1,11 +1,11 @@
 export class Product {
-  sku: string;
-  name: string;
-  description: string;
-  unitPrice: number;
-  imageUrl: string;
-  active: boolean;
-  unitInStock: number;
-  dateCreated: Date;
-  dateUpdated: Date;
+  sku: string | undefined;
+  name: string | undefined;
+  description: string | undefined;
+  unitPrice: number | undefined;
+  imageUrl: string | undefined;
+  active: boolean | undefined;
+  unitsInStock: number | undefined;
+  dateCreated: Date | undefined;
+  lastUpdate: Date | undefined;
 }

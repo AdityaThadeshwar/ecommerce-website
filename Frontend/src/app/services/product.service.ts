@@ -14,6 +14,7 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
+  //Get json response and store it in an array
   getProductList(): Observable<Product[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.products)
