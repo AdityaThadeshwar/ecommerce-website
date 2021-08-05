@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e758478-1b2d-4be6-afba-b48e8e877385" name="Changes" comment="InteliJ files">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/aditya/ecommerceproject/config/MyDataRestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/aditya/ecommerceproject/config/MyDataRestConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +70,7 @@
       <workItem from="1627924213839" duration="199000" />
       <workItem from="1627924449567" duration="665000" />
       <workItem from="1628007652725" duration="2111000" />
-      <workItem from="1628172749387" duration="2994000" />
+      <workItem from="1628172749387" duration="5865000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored workspace">
       <created>1627925077830</created>
