@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e758478-1b2d-4be6-afba-b48e8e877385" name="Changes" comment="CrossOrigin support to allow angular application to make calls to spring">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/entities/entities.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/entities/entities.dat.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/entities/entities.dat.values" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/entities/entities.dat.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/entities/entities.dat.values.s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/entities/entities.dat_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/entities/entities.dat_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/206b83c8-5383-47c0-a3a6-eb9b0a366e57/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/aditya/ecommerceproject/dao/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/aditya/ecommerceproject/dao/ProductRepository.java" afterDir="false" />
+    <list default="true" id="8e758478-1b2d-4be6-afba-b48e8e877385" name="Changes" comment="InteliJ files">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +70,7 @@
       <workItem from="1627924213839" duration="199000" />
       <workItem from="1627924449567" duration="665000" />
       <workItem from="1628007652725" duration="2111000" />
-      <workItem from="1628172749387" duration="2658000" />
+      <workItem from="1628172749387" duration="2994000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored workspace">
       <created>1627925077830</created>
@@ -99,7 +86,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628007759913</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Query Param findByCategoryId">
+      <created>1628178750138</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1628178750138</updated>
+    </task>
+    <task id="LOCAL-00004" summary="InteliJ files">
+      <created>1628178792869</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1628178792869</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +121,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactored workspace" />
     <MESSAGE value="CrossOrigin support to allow angular application to make calls to spring" />
-    <option name="LAST_COMMIT_MESSAGE" value="CrossOrigin support to allow angular application to make calls to spring" />
+    <MESSAGE value="Query Param findByCategoryId" />
+    <MESSAGE value="InteliJ files" />
+    <option name="LAST_COMMIT_MESSAGE" value="InteliJ files" />
   </component>
 </project>
