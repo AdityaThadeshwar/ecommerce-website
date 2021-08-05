@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8e758478-1b2d-4be6-afba-b48e8e877385" name="Changes" comment="Expose IDs of Product and ProductCategory objects">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/components/product-category-menu/product-category-menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/components/product-category-menu/product-category-menu.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
