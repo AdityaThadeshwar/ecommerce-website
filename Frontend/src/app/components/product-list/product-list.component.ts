@@ -40,6 +40,6 @@ export class ProductListComponent implements OnInit {
 			data => {
 				this.products = data; //assigns result to product array
 			}
-		)
+		);
 	}
 }

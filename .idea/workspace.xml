@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e758478-1b2d-4be6-afba-b48e8e877385" name="Changes" comment="InteliJ files">
+    <list default="true" id="8e758478-1b2d-4be6-afba-b48e8e877385" name="Changes" comment="Expose IDs of Product and ProductCategory objects">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/aditya/ecommerceproject/config/MyDataRestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/aditya/ecommerceproject/config/MyDataRestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,7 @@
       <workItem from="1627924213839" duration="199000" />
       <workItem from="1627924449567" duration="665000" />
       <workItem from="1628007652725" duration="2111000" />
-      <workItem from="1628172749387" duration="5865000" />
+      <workItem from="1628172749387" duration="6817000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored workspace">
       <created>1627925077830</created>
@@ -100,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628178792869</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Expose IDs of Product and ProductCategory objects">
+      <created>1628183560004</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1628183560005</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +132,7 @@
     <MESSAGE value="CrossOrigin support to allow angular application to make calls to spring" />
     <MESSAGE value="Query Param findByCategoryId" />
     <MESSAGE value="InteliJ files" />
-    <option name="LAST_COMMIT_MESSAGE" value="InteliJ files" />
+    <MESSAGE value="Expose IDs of Product and ProductCategory objects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Expose IDs of Product and ProductCategory objects" />
   </component>
 </project>

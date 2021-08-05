@@ -1,33 +1,48 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../common/product";
 import {map} from "rxjs/operators";
+import {ProductCategory} from "../common/product-category";
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class ProductService {
 
-  //Configure spring boot rest API
-  private baseUrl = 'http://localhost:8080/api/products';
+	//Configure spring boot rest API
+	private baseUrl = 'http://localhost:8080/api/products';
+	private categoryUrl = 'http://localhost:8080/api/product_category';
 
-  constructor(private httpClient: HttpClient) { }
+	constructor(private httpClient: HttpClient) {
+	}
 
-  //Get json response and store it in an array
-  getProductList(theCategoryId: number): Observable<Product[]> {
+	//Get json response and store it in an array
+	getProductList(theCategoryId: number): Observable<Product[]> {
 
-  	//url based on category id
-  	const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
+		//url based on category id
+		const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
 
-    return this.httpClient.get<GetResponse>(searchUrl).pipe(
-      map(response => response._embedded.products)
-    );
-  }
+		return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+			map(response => response._embedded.products)
+		);
+	}
+
+	getProductCategories(): Observable<ProductCategory[]> {
+		return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
+			map(response => response._embedded.productCategory)
+		);
+	}
 }
 
-interface GetResponse {
-  _embedded: {
-    products: Product[];
-  }
+interface GetResponseProducts {
+	_embedded: {
+		products: Product[];
+	}
+}
+
+interface GetResponseProductCategory {
+	_embedded: {
+		productCategory: ProductCategory[];
+	}
 }
