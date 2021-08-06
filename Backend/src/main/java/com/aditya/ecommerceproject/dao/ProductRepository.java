@@ -14,4 +14,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     //Spring REST will automatically expose this endpoint
     //http://localhost:8080/api/products/search/findByCategoryId?id=?
     Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
+
+    //http://localhost:8080/api/products/search/findByNameContaining?name=
+    //Select * from Product p
+    //where p.name like concat('%', :name, '%');
+    Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
 }
