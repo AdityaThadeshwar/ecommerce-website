@@ -21,7 +21,7 @@ export class ProductService {
 	getProductList(theCategoryId: number): Observable<Product[]> {
 
 		//url based on category id
-		const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
+		const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
 
 		return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
 			map(response => response._embedded.products)
@@ -31,6 +31,14 @@ export class ProductService {
 	getProductCategories(): Observable<ProductCategory[]> {
 		return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
 			map(response => response._embedded.productCategory)
+		);
+	}
+
+	searchProducts(theKeyword: string): Observable<Product[]> {
+		const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+
+		return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+			map(response => response._embedded.products)
 		);
 	}
 }
