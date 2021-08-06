@@ -18,14 +18,20 @@ export class ProductService {
 	}
 
 	//Get json response and store it in an array
+	//Get products based on category id
 	getProductList(theCategoryId: number): Observable<Product[]> {
 
 		//url based on category id
 		const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
 
-		return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-			map(response => response._embedded.products)
-		);
+		return this.getProducts(searchUrl);
+	}
+
+	//get products based on keyword search
+	searchProducts(theKeyword: string): Observable<Product[]> {
+		const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+
+		return this.getProducts(searchUrl);
 	}
 
 	getProductCategories(): Observable<ProductCategory[]> {
@@ -34,9 +40,8 @@ export class ProductService {
 		);
 	}
 
-	searchProducts(theKeyword: string): Observable<Product[]> {
-		const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
 
+	private getProducts(searchUrl: string) {
 		return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
 			map(response => response._embedded.products)
 		);
