@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e758478-1b2d-4be6-afba-b48e8e877385" name="Changes" comment="Added findByNameContaining query method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list-grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/components/product-list/product-list-grid.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
       <workItem from="1627924449567" duration="665000" />
       <workItem from="1628007652725" duration="2111000" />
       <workItem from="1628172749387" duration="6819000" />
-      <workItem from="1628257811127" duration="3230000" />
+      <workItem from="1628257811127" duration="3769000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored workspace">
       <created>1627925077830</created>
