@@ -10,9 +10,9 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProductListComponent implements OnInit {
 
-	products: Product[] | undefined;
-	currentCategoryId: number | undefined;
-	searchMode: boolean | undefined;
+	products: Product[];
+	currentCategoryId: number;
+	searchMode: boolean;
 
 	constructor(private productService: ProductService,
 				private route: ActivatedRoute) { //Injects route. Useful for accessing route parameters
