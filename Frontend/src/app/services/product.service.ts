@@ -32,6 +32,7 @@ export class ProductService {
 		//url based on category id
 		const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}&page=${thePage}&size=${thePageSize}`;
 
+		console.log(searchUrl);
 		return this.httpClient.get<GetResponseProducts>(searchUrl);
 	}
 
@@ -56,7 +57,7 @@ export class ProductService {
 		);
 	}
 
-	private getProducts(searchUrl: string) {
+	private getProducts(searchUrl: string): Observable<Product[]> {
 		return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
 			map(response => response._embedded.products)
 		);
@@ -69,7 +70,7 @@ interface GetResponseProducts {
 	},
 
 	page: {
-		page: number,
+		size: number,
 		totalElements: number,
 		totalPages: number,
 		number: number
