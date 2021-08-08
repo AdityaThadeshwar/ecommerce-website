@@ -27,8 +27,8 @@ const routes: Routes = [
 		AppComponent,
 		ProductListComponent,
 		ProductCategoryMenuComponent,
-  SearchComponent,
-  ProductDetailsComponent
+		SearchComponent,
+		ProductDetailsComponent
 	],
 	imports: [
 		RouterModule.forRoot(routes),
