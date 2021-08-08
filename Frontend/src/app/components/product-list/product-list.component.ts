@@ -20,6 +20,8 @@ export class ProductListComponent implements OnInit {
 	thePageSize: number = 5;
 	theTotalElements: number = 0;
 
+	previousKeyword: string = null
+
 	constructor(private productService: ProductService,
 				private route: ActivatedRoute) { //Injects route. Useful for accessing route parameters
 	}
@@ -52,7 +54,7 @@ export class ProductListComponent implements OnInit {
 		} else
 			this.currentCategoryId = 1;
 
-		//If category is changed then reset the page no
+		//If category is changed then reset the page no to 1
 		if(this.previousCategoryId != this.currentCategoryId)
 			this.thePageNumber = 1;
 
@@ -66,6 +68,7 @@ export class ProductListComponent implements OnInit {
 		// 	}
 		// );
 
+		//get products based on page size
 		this.productService.getProductListPaginate(this.thePageNumber - 1, this.thePageSize, this.currentCategoryId).subscribe(this.processResult());
 
 	}
@@ -82,11 +85,22 @@ export class ProductListComponent implements OnInit {
 	handleSearchProducts() {
 		const theKeyword: string = String(this.route.snapshot.paramMap.get('keyword'));
 
-		this.productService.searchProducts(theKeyword).subscribe(
-			data => {
-				this.products = data; //assigns result to product array
-			}
-		);
+		//If keyword is changed then reset the page no to 1
+		if(this.previousKeyword != theKeyword)
+			this.thePageNumber = 1;
+
+		this.previousKeyword = theKeyword;
+
+		console.log(`theKeyword: ${theKeyword}, thePageNumber: ${this.thePageNumber}`);
+
+		// this.productService.searchProducts(theKeyword).subscribe(
+		// 	data => {
+		// 		this.products = data; //assigns result to product array
+		// 	}
+		// );
+
+		//get products based on page size
+		this.productService.searchProductsPaginate(this.thePageNumber - 1, this.thePageSize, theKeyword).subscribe(this.processResult());
 	}
 
 	//Method is called when user changes the page size
