@@ -45,6 +45,18 @@
 									</ngb-pagination>
 
 								</div>
+
+								<div class="col-md-3 mt-2" style = "text-align: right">
+									<span class="mt-2">Page Size </span>
+
+									<select (change)="updatePageSize($any($event.target).value)">
+										<option selected = "selected">5</option>
+										<option>10</option>
+										<option>20</option>
+										<option>50</option>
+									</select>
+
+								</div>
 							</div>
 						</div>
 
