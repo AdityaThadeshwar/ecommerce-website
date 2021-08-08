@@ -10,9 +10,15 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProductListComponent implements OnInit {
 
-	products: Product[];
-	currentCategoryId: number;
-	searchMode: boolean;
+	products: Product[] = [];
+	currentCategoryId: number = 1;
+	previousCategoryId: number = 1;
+	searchMode: boolean = false;
+
+	//properties for pagination
+	thePageNumber: number = 1;
+	thePageSize: number = 10;
+	theTotalElements: number = 0;
 
 	constructor(private productService: ProductService,
 				private route: ActivatedRoute) { //Injects route. Useful for accessing route parameters
@@ -46,12 +52,30 @@ export class ProductListComponent implements OnInit {
 		} else
 			this.currentCategoryId = 1;
 
+		//If category is changed then reset the page no
+		if(this.previousCategoryId != this.currentCategoryId)
+			this.thePageNumber = 1;
+
+		this.previousCategoryId = this.currentCategoryId;
+		console.log(`currentCategoryId: ${this.currentCategoryId}, thePageNumber: ${this.thePageNumber}`);
+
 		//Get products for given category id
-		this.productService.getProductList(this.currentCategoryId).subscribe(   //method is invoked once you subscribe
-			data => {
-				this.products = data; //assigns result to product array
-			}
-		);
+		// this.productService.getProductList(this.currentCategoryId).subscribe(   //method is invoked once you subscribe
+		// 	data => {
+		// 		this.products = data; //assigns result to product array
+		// 	}
+		// );
+
+		this.productService.getProductListPaginate(this.thePageNumber - 1, this.thePageSize, this.currentCategoryId).subscribe(this.processResult());
+	}
+
+	processResult() {
+		return data => {
+			this.products = data._embedded;
+			this.thePageNumber = data.page.number + 1;
+			this.thePageSize = data.page.size;
+			this.theTotalElements = data.page.totalElements;
+		}
 	}
 
 	handleSearchProducts() {
