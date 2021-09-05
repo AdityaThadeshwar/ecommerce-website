@@ -60,7 +60,7 @@ export class CartService {
 
   		//Publish values to all subscribers
 		this.totalPrice.next(totalPriceValue);
-  		this.totalQuantity.next(totalPriceValue);
+  		this.totalQuantity.next(totalQuantityValue);
 
   		//log cart data
 		this.logCartData(totalPriceValue, totalQuantityValue);
