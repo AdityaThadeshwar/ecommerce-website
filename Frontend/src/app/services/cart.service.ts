@@ -32,19 +32,19 @@ export class CartService {
 
 			//check if we found it
 			alreadyExistsInCart = (existingCartItem != undefined);
-
-			//if item already exists then increment the quantity else add it in the array
-			if(alreadyExistsInCart) {
-				existingCartItem.quantity++;
-			}
-
-			else {
-				this.cartItems.push(theCartItem);
-			}
-
-			//Compute total price and total quantity in cart
-			this.computeCartTotals();
 		}
+
+		//if item already exists then increment the quantity else add it in the array
+		if(alreadyExistsInCart) {
+			existingCartItem.quantity++;
+		}
+
+		else {
+			this.cartItems.push(theCartItem);
+		}
+
+		//Compute total price and total quantity in cart
+		this.computeCartTotals();
 	}
 
 	computeCartTotals() {
@@ -68,15 +68,17 @@ export class CartService {
 
 	logCartData(totalPriceValue: number, totalQuantityValue: number) {
 
+		console.log(`-----------`);
   		console.log("Contents of the cart...");
 
   		for(let tempCartItem of this.cartItems) {
 
   			const subTotalPrice = tempCartItem.quantity * tempCartItem.unitPrice;
 
-  			console.log(`Name: ${tempCartItem.name}, Unit Price: $${tempCartItem.unitPrice}, Total Price: $${subTotalPrice}`);
+  			console.log(`Name: ${tempCartItem.name}, Quantity: ${tempCartItem.quantity}, Unit Price: $${tempCartItem.unitPrice}, Total Price: $${subTotalPrice}`);
 		}
 
   		console.log(`Total Price: $${totalPriceValue.toFixed(2)}, Total Quantity: ${totalQuantityValue}`);
+		console.log(`-----------`);
 	}
 }
