@@ -11,6 +11,9 @@ export class CheckoutComponent implements OnInit {
 	//FormGroup is collection of FormControls or FormElements or other groups
 	checkoutFormGroup: FormGroup;
 
+	totalPrice: number = 0;
+	totalQuantity: number = 0;
+
 	constructor(private formBuilder: FormBuilder) {
 	}
 
