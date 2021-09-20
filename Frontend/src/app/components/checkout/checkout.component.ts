@@ -52,4 +52,16 @@ export class CheckoutComponent implements OnInit {
 		console.log("Last Name: " + this.checkoutFormGroup.get('customer').value.lastName);
 	}
 
+	copyShippingAddressToBillingAddress(event) {
+
+		//If checkbox is checked then copy values from shipping address to billing address
+		if(event.target.checked) {
+			this.checkoutFormGroup.controls.billingAddress.setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+		}
+
+		//else clear billing address
+		else {
+			this.checkoutFormGroup.controls.billingAddress.reset();
+		}
+	}
 }
