@@ -13,7 +13,7 @@
 
 					<tr *ngFor="let tempCartItem of cartItems">
 						<td>
-							<img src="{{ tempCartItem.imageUrl }}" class="img-fluid" width="150px">
+							<img src="{{ tempCartItem.imageUrl }}" class="img-fluid" width="150px"/>
 						</td>
 						<td>
 							<p>{{ tempCartItem.name }}</p>
@@ -23,28 +23,35 @@
 
 							<div class="items">
 								<label>Quantity: </label>
+
+								<div class="row g-0">
+									<div class="col">
+										<button (click)="decrementQuantity(tempCartItem)"
+												class="btn btn-primary btn-sm">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+
+									<div class="col ms-3 me-1">
+										{{ tempCartItem.quantity }}
+									</div>
+
+									<div class="col">
+										<button (click)="incrementQuantity(tempCartItem)"
+												class="btn btn-primary btn-sm">
+											<i class="fas fa-plus"></i>
+										</button>
+									</div>
+
+									<div class="col-5"></div>
+
+								</div>
 							</div>
 
-							<div class="row g-0">
-								<div class="col">
-									<button (click)="decrementQuantity(tempCartItem)" class="btn btn-primary btn-sm">
-										<i class="fas fa-minus"></i>
-									</button>
-								</div>
-
-								<div class="col ms-3 me-1">
-									{{ tempCartItem.quantity }}
-								</div>
-
-								<div class="col">
-									<button (click)="incrementQuantity(tempCartItem)" class="btn btn-primary btn-sm">
-										<i class="fas fa-plus"></i>
-									</button>
-								</div>
-
-								<div class="col-8"></div>
-
+							<div class="col">
+								<button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
 							</div>
+
 
 							<p class="mt-2">Subtotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD' }}</p>
 						</td>

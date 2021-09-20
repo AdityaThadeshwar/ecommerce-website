@@ -15,6 +15,7 @@ export class CartService {
 
   	constructor() { }
 
+	//Add item to cart
 	addToCart(theCartItem: CartItem) {
   		let alreadyExistsInCart: boolean = false;
   		let existingCartItem: CartItem = undefined;
@@ -81,6 +82,7 @@ export class CartService {
 	decrementQuantity(theCartItem: CartItem) {
 		theCartItem.quantity--;
 
+		//Remove item from cart if quantity is 0
 		if(theCartItem.quantity === 0) {
 			this.remove(theCartItem);
 		}
@@ -90,6 +92,7 @@ export class CartService {
 		}
 	}
 
+	//Remive item from the cart
 	remove(theCartItem: CartItem) {
 
 		  //Get index of the cart item
