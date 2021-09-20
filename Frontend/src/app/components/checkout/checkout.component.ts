@@ -17,11 +17,17 @@ export class CheckoutComponent implements OnInit {
 	ngOnInit(): void {
 		this.checkoutFormGroup = this.formBuilder.group({
 			customer: this.formBuilder.group({
-				firstname: [''],
+				firstName: [''],
 				lastName: [''],
 				email: ['']
 			})
 		});
+	}
+
+	onSubmit() {
+		console.log("Purchase button clicked");
+		console.log(this.checkoutFormGroup.get('customer').value);
+		console.log("Last Name: " + this.checkoutFormGroup.get('customer').value.lastName);
 	}
 
 }
