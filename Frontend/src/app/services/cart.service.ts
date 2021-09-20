@@ -76,4 +76,29 @@ export class CartService {
   		console.log(`Total Price: $${totalPriceValue.toFixed(2)}, Total Quantity: ${totalQuantityValue}`);
 		console.log(`-----------`);
 	}
+
+	//Decrement item quantity from the cart
+	decrementQuantity(theCartItem: CartItem) {
+		theCartItem.quantity--;
+
+		if(theCartItem.quantity === 0) {
+			this.remove(theCartItem);
+		}
+
+		else {
+			this.computeCartTotals();
+		}
+	}
+
+	remove(theCartItem: CartItem) {
+
+		  //Get index of the cart item
+		  const itemIndex = this.cartItems.findIndex( tempCartItem => tempCartItem.id === theCartItem.id);
+
+		  //Remove the item if found
+		  if(itemIndex > -1) {
+			  this.cartItems.splice(itemIndex, 1);
+			  this.computeCartTotals();
+		  }
+	}
 }
