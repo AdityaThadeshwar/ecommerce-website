@@ -63,6 +63,11 @@
 							<p>Total Price: {{ totalPrice | currency:'USD' }}</p>
 							<p *ngIf="totalPrice <= 50 && totalPrice != 0">Shipping: $10.99</p>
 							<p *ngIf="totalPrice > 50">Shipping: FREE</p>
+
+							<div>
+								<a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+							</div>
+							
 						</td>
 					</tr>
 

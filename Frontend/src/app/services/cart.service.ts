@@ -92,7 +92,7 @@ export class CartService {
 		}
 	}
 
-	//Remive item from the cart
+	//Remove item from the cart
 	remove(theCartItem: CartItem) {
 
 		  //Get index of the cart item
