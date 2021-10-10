@@ -42,7 +42,7 @@ export class CheckoutComponent implements OnInit {
 				cardType: [''],
 				nameOnCard: [''],
 				cardNumber: [''],
-				securityNumber: [''],
+				securityCode: [''],
 				expirationMonth: [''],
 				expirationYear: ['']
 			})
@@ -53,6 +53,8 @@ export class CheckoutComponent implements OnInit {
 		console.log("Purchase button clicked");
 		console.log(this.checkoutFormGroup.get('customer').value);
 		console.log("Last Name: " + this.checkoutFormGroup.get('customer').value.lastName);
+		console.log("Total Quantity: " + this.totalQuantity);
+		console.log("Total Price: " + this.totalPrice);
 	}
 
 	copyShippingAddressToBillingAddress(event) {
