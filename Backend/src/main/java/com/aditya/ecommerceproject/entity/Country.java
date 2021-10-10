@@ -2,6 +2,7 @@ package com.aditya.ecommerceproject.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,5 +25,8 @@ public class Country {
     private String name;
 
     @OneToMany(mappedBy = "country")
+    @JsonIgnore
+    //Ignores the states returned by the /countries endpoint.
+    // If removed, /countries will also return states associated with the contry
     private List<State> states;
 }
