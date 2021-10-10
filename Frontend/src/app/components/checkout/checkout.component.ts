@@ -53,7 +53,7 @@ export class CheckoutComponent implements OnInit {
 		});
 
 		//Populate credit card months
-		const startMonth: number = new Date().getMonth();
+		const startMonth: number = new Date().getMonth() + 1;
 		console.log("startMonth: " + startMonth);
 
 		this.shopFormService.getCreditCardMonths(startMonth).subscribe(
@@ -91,5 +91,29 @@ export class CheckoutComponent implements OnInit {
 		else {
 			this.checkoutFormGroup.controls.billingAddress.reset();
 		}
+	}
+
+	//Handle months and years on changing year from UI in cc field
+	handleMonthsAndYears() {
+
+		const creditCardFormGroup = this.checkoutFormGroup.get('creditCard');
+
+		const currentYear: number = new Date().getFullYear();
+		const selectedYear: number = Number(creditCardFormGroup.value.expirationYear);
+
+		let startMonth: number;
+
+		if(currentYear === selectedYear)
+			startMonth = new Date().getMonth() + 1;
+
+		else
+			startMonth = 1;
+
+		this.shopFormService.getCreditCardMonths(startMonth).subscribe(
+			data => {
+				console.log("Retrieved credit card months: " + JSON.stringify(data));
+				this.creditCardMonths = data;
+			}
+		)
 	}
 }
