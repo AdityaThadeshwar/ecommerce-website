@@ -1,6 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {GetResponseCountries} from "../interfaces/get-response-countries";
+import {Country} from "../common/country";
+import {map} from "rxjs/operators";
+import {State} from "../common/state";
+import {GetResponseStates} from "../interfaces/get-resonse-states";
 
 @Injectable({
 	providedIn: 'root'
@@ -11,6 +16,24 @@ export class ShopFormService {
 	private statesUrl = 'http://localhost:8080/api/states';
 
 	constructor(private httpClient: HttpClient) {
+	}
+
+	//Get countries from spring
+	getCountries(): Observable<Country[]> {
+		return this.httpClient.get<GetResponseCountries>(this.countriesUrl).pipe(
+			map(response => response._embedded.countries)
+		);
+	}
+
+	//Get states from spring
+	getStates(theCountryCode: String): Observable<State[]> {
+
+		//State search url by country code
+		const stateSearchUrl = `${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}`;
+
+		return this.httpClient.get<GetResponseStates>(stateSearchUrl).pipe(
+			map(response => response._embedded.states)
+		)
 	}
 
 	getCreditCardMonths(startMonth: number): Observable<number[]> {
@@ -41,6 +64,4 @@ export class ShopFormService {
 		//of() ( reactive javascript ) wraps an object as an observable
 		return of(data);
 	}
-
-
 }
