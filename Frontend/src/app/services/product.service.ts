@@ -4,6 +4,8 @@ import {Observable} from "rxjs";
 import {Product} from "../common/product";
 import {map} from "rxjs/operators";
 import {ProductCategory} from "../common/product-category";
+import {GetResponseProducts} from "../interfaces/get-response-products";
+import {GetResponseProductCategory} from "../interfaces/get-response-product-category";
 
 @Injectable({
 	providedIn: 'root'
@@ -73,24 +75,5 @@ export class ProductService {
 		return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
 			map(response => response._embedded.products)
 		);
-	}
-}
-
-interface GetResponseProducts {
-	_embedded: {
-		products: Product[];
-	},
-
-	page: {
-		size: number,
-		totalElements: number,
-		totalPages: number,
-		number: number
-	}
-}
-
-interface GetResponseProductCategory {
-	_embedded: {
-		productCategory: ProductCategory[];
 	}
 }
