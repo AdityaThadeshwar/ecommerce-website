@@ -41,14 +41,14 @@ export class CheckoutComponent implements OnInit {
 				street: new FormControl('', [Validators.required, Validators.minLength(5), ShopValidators.notOnlyWhiteSpace]),
 				city: new FormControl('', [Validators.required, Validators.minLength(3), ShopValidators.notOnlyWhiteSpace]),
 				state: new FormControl('', [Validators.required]),
-				zipCode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$'),ShopValidators.notOnlyWhiteSpace]),
+				zipCode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$'),ShopValidators.notOnlyWhiteSpace])
 			}),
 			billingAddress: this.formBuilder.group({
-				country: [''],
-				street: [''],
-				city: [''],
-				state: [''],
-				zipCode: ['']
+				country: new FormControl('', [Validators.required]),
+				street: new FormControl('', [Validators.required, Validators.minLength(5), ShopValidators.notOnlyWhiteSpace]),
+				city: new FormControl('', [Validators.required, Validators.minLength(3), ShopValidators.notOnlyWhiteSpace]),
+				state: new FormControl('', [Validators.required]),
+				zipCode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$'),ShopValidators.notOnlyWhiteSpace])
 			}),
 			creditCard: this.formBuilder.group({
 				cardType: [''],
@@ -184,4 +184,10 @@ export class CheckoutComponent implements OnInit {
 	get shippingAddressZipCode() { return this.checkoutFormGroup.get('shippingAddress.zipCode'); }
 	get shippingAddressState() { return this.checkoutFormGroup.get('shippingAddress.state'); }
 	get shippingAddressCountry() { return this.checkoutFormGroup.get('shippingAddress.country'); }
+
+	get billingAddressStreet() { return this.checkoutFormGroup.get('billingAddress.street'); }
+	get billingAddressCity() { return this.checkoutFormGroup.get('billingAddress.city'); }
+	get billingAddressZipCode() { return this.checkoutFormGroup.get('billingAddress.zipCode'); }
+	get billingAddressState() { return this.checkoutFormGroup.get('billingAddress.state'); }
+	get billingAddressCountry() { return this.checkoutFormGroup.get('billingAddress.country'); }
 }
