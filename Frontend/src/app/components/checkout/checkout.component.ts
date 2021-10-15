@@ -93,6 +93,8 @@ export class CheckoutComponent implements OnInit {
 		console.log("Last Name: " + this.checkoutFormGroup.get('customer').value.lastName);
 		console.log("Total Quantity: " + this.totalQuantity);
 		console.log("Total Price: " + this.totalPrice);
+		console.log(`Shipping Address Country/State: ${this.checkoutFormGroup.get('shippingAddress').value.country.name}/${this.checkoutFormGroup.get('shippingAddress').value.state.name}`);
+		console.log(`Billing Address Country/State: ${this.checkoutFormGroup.get('billingAddress').value.country.name}/${this.checkoutFormGroup.get('billingAddress').value.state.name}`)
 	}
 
 	copyShippingAddressToBillingAddress(event) {
@@ -140,7 +142,7 @@ export class CheckoutComponent implements OnInit {
 
 		const countryCode = formGroup.value.country.code;
 
-		console.log("formGroup country code: " + countryCode);
+		console.log(`${formGroupName} country code: countryCode`);
 
 		this.shopFormService.getStates(countryCode).subscribe(
 			data => {
