@@ -58,16 +58,17 @@
 					</tr>
 					<tr>
 						<td colspan="2"></td>
-						<td style="font-weight: bold">
+						<td> <!-- style="font-weight: bold" -->
 							<p>Total Quantity: {{ totalQuantity }}</p>
 							<p>Total Price: {{ totalPrice | currency:'USD' }}</p>
-							<p *ngIf="totalPrice <= 50 && totalPrice != 0">Shipping: $10.99</p>
+							<p *ngIf="totalPrice <= 50 && totalPrice > 0">Shipping: $10.99</p>
+							<p *ngIf="totalPrice <= 50 && totalPrice > 0">Order above $50 to get free shipping</p>
 							<p *ngIf="totalPrice > 50">Shipping: FREE</p>
 
 							<div>
 								<a routerLink="/checkout" class="btn btn-primary">Checkout</a>
 							</div>
-							
+
 						</td>
 					</tr>
 

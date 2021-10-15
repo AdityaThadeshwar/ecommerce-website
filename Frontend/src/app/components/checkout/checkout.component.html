@@ -445,8 +445,10 @@
 					<h3>Review Your Order</h3>
 
 					<p>Total Quantity: {{ totalQuantity }}</p>
-					<p>Total Price: {{ totalPrice | currency: "USD" }}</p>
-					<p>Shipping: Free</p>
+					<p>Total Price: {{ totalPrice | currency:'USD' }}</p>
+					<p *ngIf="totalPrice <= 50 && totalPrice > 0">Shipping: $10.99</p>
+					<p *ngIf="totalPrice <= 50 && totalPrice > 0">Order above $50 to get free shipping</p>
+					<p *ngIf="totalPrice > 50">Shipping: FREE</p>
 
 				</div>
 
