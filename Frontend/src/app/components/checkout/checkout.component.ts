@@ -41,20 +41,20 @@ export class CheckoutComponent implements OnInit {
 				street: new FormControl('', [Validators.required, Validators.minLength(5), ShopValidators.notOnlyWhiteSpace]),
 				city: new FormControl('', [Validators.required, Validators.minLength(3), ShopValidators.notOnlyWhiteSpace]),
 				state: new FormControl('', [Validators.required]),
-				zipCode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$'),ShopValidators.notOnlyWhiteSpace])
+				zipCode: new FormControl('', [Validators.required, Validators.pattern('[0-9]{6}'),ShopValidators.notOnlyWhiteSpace])
 			}),
 			billingAddress: this.formBuilder.group({
 				country: new FormControl('', [Validators.required]),
 				street: new FormControl('', [Validators.required, Validators.minLength(5), ShopValidators.notOnlyWhiteSpace]),
 				city: new FormControl('', [Validators.required, Validators.minLength(3), ShopValidators.notOnlyWhiteSpace]),
 				state: new FormControl('', [Validators.required]),
-				zipCode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$'),ShopValidators.notOnlyWhiteSpace])
+				zipCode: new FormControl('', [Validators.required, Validators.pattern('[0-9]{6}'),ShopValidators.notOnlyWhiteSpace])
 			}),
 			creditCard: this.formBuilder.group({
-				cardType: [''],
-				nameOnCard: [''],
-				cardNumber: [''],
-				securityCode: [''],
+				cardType: new FormControl('', [Validators.required]),
+				nameOnCard: new FormControl('', [Validators.required, Validators.minLength(2), ShopValidators.notOnlyWhiteSpace]),
+				cardNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]{16}'),ShopValidators.notOnlyWhiteSpace]),
+				securityCode: new FormControl('', [Validators.required, Validators.pattern('[0-9]{3}'),ShopValidators.notOnlyWhiteSpace]),
 				expirationMonth: [''],
 				expirationYear: ['']
 			})
@@ -190,4 +190,10 @@ export class CheckoutComponent implements OnInit {
 	get billingAddressZipCode() { return this.checkoutFormGroup.get('billingAddress.zipCode'); }
 	get billingAddressState() { return this.checkoutFormGroup.get('billingAddress.state'); }
 	get billingAddressCountry() { return this.checkoutFormGroup.get('billingAddress.country'); }
+
+	get creditCardType() { return this.checkoutFormGroup.get('creditCard.cardType') }
+	get creditCardNameOnCard() { return this.checkoutFormGroup.get('creditCard.nameOnCard') }
+	get creditCardNumber() { return this.checkoutFormGroup.get('creditCard.cardNumber') }
+	get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCard.securityCode') }
+
 }
