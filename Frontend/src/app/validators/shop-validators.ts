@@ -8,7 +8,7 @@ export class ShopValidators {
 
 		//Validation fails. String only contains whitespace
 		//notOnlyWhiteSpace this key is used in html to check whether to display the error message or not
-		if( (control.value != null) && (control.value.trim().length === 0))
+		if( (control.value != null) && (control.value.trim().length === 0 ))
 			return { 'notOnlyWhiteSpace': true }
 
 		//Validation passes
