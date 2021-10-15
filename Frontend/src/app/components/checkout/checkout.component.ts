@@ -102,11 +102,16 @@ export class CheckoutComponent implements OnInit {
 		//If checkbox is checked then copy values from shipping address to billing address
 		if(event.target.checked) {
 			this.checkoutFormGroup.controls.billingAddress.setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+
+			//copy states
+			this.billingAddressStates = this.shippingAddressStates;
 		}
 
-		//else clear billing address
+		//else clear billing address on uncheck
 		else {
 			this.checkoutFormGroup.controls.billingAddress.reset();
+
+			this.billingAddressStates = [];
 		}
 	}
 
