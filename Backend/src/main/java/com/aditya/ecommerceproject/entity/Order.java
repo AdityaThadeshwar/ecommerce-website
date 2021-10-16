@@ -8,6 +8,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -20,7 +22,7 @@ public class Order {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "order_traccking_number")
+    @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
 
     @Column(name = "total_quantity")
@@ -36,7 +38,35 @@ public class Order {
     @CreationTimestamp
     private Date dateCreated;
 
-    @Column(name = "date_updated")
+    @Column(name = "last_updated")
     @UpdateTimestamp
     private Date lastUpdated;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+    private Set<OrderItem> orderItems = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "shipping_address_id", referencedColumnName = "id" )
+    private Address shippingAddress;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "billing_address_id", referencedColumnName = "id" )
+    private Address billingAddress;
+
+    public void add(OrderItem item) {
+
+        if(item != null) {
+
+            if(orderItems == null) {
+                orderItems = new HashSet<>();
+            }
+
+            orderItems.add(item);
+            item.setOrder(this);
+        }
+    }
 }

@@ -31,5 +31,9 @@ public class Address {
     @Column(name = "zip_code")
     private String zipCode;
 
+    //PrimaryKeyJoinColumn - join using primary key. By default, keys have same value
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Address order;
 
 }
