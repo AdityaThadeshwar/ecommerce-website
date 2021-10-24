@@ -19,13 +19,14 @@ import {LoginComponent} from './components/login/login.component';
 import {LoginStatusComponent} from './components/login-status/login-status.component';
 
 
-import {OKTA_CONFIG, OktaAuthModule, OktaCallbackComponent} from "@okta/okta-angular";
+import {OKTA_CONFIG, OktaAuthGuard, OktaAuthModule, OktaCallbackComponent} from "@okta/okta-angular";
 
 import myAppConfig from './config/my-app-config';
+import {MembersPageComponent} from './components/members-page/members-page.component';
 
 //Create an object onAuthRequired, when user tries to login and they haven't been authenticated, route them to login page
 const oktaConfig = Object.assign({
-	onAuthRequired: (injector) => {
+	onAuthRequired: (oktaAuth, injector) => {
 		const router = injector.get(Router);
 
 		//Redirect the user to custom login page
@@ -35,6 +36,7 @@ const oktaConfig = Object.assign({
 
 
 const routes: Routes = [
+	{path: 'members', component: MembersPageComponent, canActivate: [OktaAuthGuard]},
 	{path: 'login/callback', component: OktaCallbackComponent},
 	{path: 'login', component: LoginComponent},
 	{path: 'checkout', component: CheckoutComponent},
@@ -59,7 +61,8 @@ const routes: Routes = [
 		CartDetailsComponent,
 		CheckoutComponent,
 		LoginComponent,
-		LoginStatusComponent
+		LoginStatusComponent,
+  MembersPageComponent
 	],
 	imports: [
 		RouterModule.forRoot(routes),
