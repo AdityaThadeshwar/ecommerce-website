@@ -81,7 +81,7 @@ export class CartService {
 	}
 
 	//store cart items in browser storage
-	persistCartItems() {
+	 persistCartItems() {
 		this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
 	}
 
