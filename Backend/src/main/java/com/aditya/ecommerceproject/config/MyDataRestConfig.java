@@ -5,6 +5,7 @@ import com.aditya.ecommerceproject.entity.Product;
 import com.aditya.ecommerceproject.entity.ProductCategory;
 import com.aditya.ecommerceproject.entity.State;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -20,6 +21,9 @@ import java.util.Set;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
+    @Value("${allowed.origins}")
+    private String[] allowedOrigins;
+
     //Autowire JPA entity manager
     private EntityManager entityManager;
 
@@ -32,7 +36,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config, cors);
 
-        HttpMethod[] theUnsupportedActions = {HttpMethod.POST, HttpMethod.PUT, HttpMethod.DELETE};
+        HttpMethod[] theUnsupportedActions = {HttpMethod.POST, HttpMethod.PUT, HttpMethod.DELETE, HttpMethod.PATCH};
 
         //Disable following HTTP methods for given Class: POST, PUT, DELETE
         disableHttpMethods(Product.class, config, theUnsupportedActions);
@@ -42,6 +46,10 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         //Helper method to expose IDs
         exposeIds(config);
+
+        //configure cors path
+        //config.getBasePath() will return spring.data.rest.base-path property value
+        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(allowedOrigins);  ////Allow angular to make calls to spring application
     }
 
     private void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions) {
