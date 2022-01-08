@@ -1,9 +1,6 @@
 package com.aditya.ecommerceproject.config;
 
-import com.aditya.ecommerceproject.entity.Country;
-import com.aditya.ecommerceproject.entity.Product;
-import com.aditya.ecommerceproject.entity.ProductCategory;
-import com.aditya.ecommerceproject.entity.State;
+import com.aditya.ecommerceproject.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -43,13 +40,14 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
 
         //Helper method to expose IDs
         exposeIds(config);
 
         //configure cors path
         //config.getBasePath() will return spring.data.rest.base-path property value
-        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(allowedOrigins);  ////Allow angular to make calls to spring application
+        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(allowedOrigins);  //Allow angular to make calls to spring application
     }
 
     private void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions) {
