@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "a524484e-db79-4b46-b081-04f02a6ae351",
+		"name": "ecommerce-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"customer\":{\r\n      \"firstName\":\"afasa\",\r\n      \"lastName\":\"afasa\",\r\n      \"email\":\"racoba9095@forfity.com\"\r\n   },\r\n   \"shippingAddress\":{\r\n      \"street\":\"afasa\",\r\n      \"city\":\"afasa\",\r\n      \"state\":\"Alberta\",\r\n      \"country\":\"Canada\",\r\n      \"zipCode\":\"afasa\"\r\n   },\r\n   \"billingAddress\":{\r\n      \"street\":\"fsfsf\",\r\n      \"city\":\"sfdsf\",\r\n      \"state\":\"Acre\",\r\n      \"country\":\"Brazil\",\r\n      \"zipCode\":\"19111\"\r\n   },\r\n   \"order\":{\r\n      \"totalPrice\":36.98,\r\n      \"totalQuantity\":2\r\n   },\r\n   \"orderItems\":[\r\n      {\r\n         \"imageUrl\":\"assets/images/products/coffeemugs/coffeemug-luv2code-1000.png\",\r\n         \"quantity\":1,\r\n         \"unitPrice\":18.99,\r\n         \"productId\":26\r\n      },\r\n      {\r\n         \"imageUrl\":\"assets/images/products/mousepads/mousepad-luv2code-1000.png\",\r\n         \"quantity\":1,\r\n         \"unitPrice\":17.99,\r\n         \"productId\":51\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/checkout/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"checkout",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findCustomerByEmail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJFc3pQVjZwWm5kRTQ5WC1LaXpfVk1VcWJpV2JVYk83c1JHMDVoWXB1cWswIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULm5WZEtpYVlVOW00ZS1uNU9IRnFja1VDenRPUml5LXBnYmZMVVRSemNIZW8iLCJpc3MiOiJodHRwczovL2Rldi05OTAwODkxLm9rdGEuY29tL29hdXRoMi9kZWZhdWx0IiwiYXVkIjoiYXBpOi8vZGVmYXVsdCIsImlhdCI6MTY0MTcyNjk5OCwiZXhwIjoxNjQxNzMwNTk4LCJjaWQiOiIwb2EyYndmNHBlTFdXOExMRjVkNyIsInVpZCI6IjAwdTJid2pkcmFsZjk3bnhINWQ3Iiwic2NwIjpbInByb2ZpbGUiLCJvcGVuaWQiLCJlbWFpbCJdLCJzdWIiOiJyYWNvYmE5MDk1QGZvcmZpdHkuY29tIn0.Hkmx9XPPyA4BbNfRkjlf3Uc86odeaWeod4mlNRv1BUsmm-sIyN4Ew92rmRujJw2yBHHAPv_Ox-YI0-JF8rC9QS0d8XdSUP3Zf5kNmCvmJLCYxGllqyt9T_AXDhp5LmCbbd8_4Fem0Zv59C9fgQOMgACGdyY-nCfEYytGC42XkBz_PultXN5pZN7fP3TMvYqfRakAGScusdoFp4zEnwe6EciNlNnwzKDFqM5gUS9KSF8ej349JPjN60ooLm3o0AfOoF6o1pDYXQijSa_cpLNPYXryrFBWcdouQCDy3NJOa8A_8fzGvgLS28iL5nballhOKSW6IeoOx234gnwxcLW4jw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/orders/search/findByCustomerEmailOrderByDateCreatedDesc?email=racoba9095@forfity.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders",
+						"search",
+						"findByCustomerEmailOrderByDateCreatedDesc"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "racoba9095@forfity.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
