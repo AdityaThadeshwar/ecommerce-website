@@ -6,14 +6,15 @@ import {Country} from "../common/country";
 import {map} from "rxjs/operators";
 import {State} from "../common/state";
 import {GetResponseStates} from "../interfaces/get-resonse-states";
+import {environment} from "../../environments/environment";
 
 @Injectable({
 	providedIn: 'root'
 })
 export class ShopFormService {
 
-	private countriesUrl = 'http://localhost:8080/api/countries';
-	private statesUrl = 'http://localhost:8080/api/states';
+	private countriesUrl = environment.applicationUrl + '/countries';
+	private statesUrl = environment.applicationUrl + '/states';
 
 	constructor(private httpClient: HttpClient) {
 	}

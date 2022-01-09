@@ -6,6 +6,7 @@ import {map} from "rxjs/operators";
 import {ProductCategory} from "../common/product-category";
 import {GetResponseProducts} from "../interfaces/get-response-products";
 import {GetResponseProductCategory} from "../interfaces/get-response-product-category";
+import {environment} from "../../environments/environment";
 
 @Injectable({
 	providedIn: 'root'
@@ -13,8 +14,8 @@ import {GetResponseProductCategory} from "../interfaces/get-response-product-cat
 export class ProductService {
 
 	//Configure spring boot rest API
-	private baseUrl = 'http://localhost:8080/api/products';
-	private categoryUrl = 'http://localhost:8080/api/product_category';
+	private baseUrl = environment.applicationUrl + '/products';
+	private categoryUrl = environment.applicationUrl + '/product_category';
 
 	constructor(private httpClient: HttpClient) {
 	}
