@@ -1,0 +1,14 @@
+http://localhost:8080/api
+
+GET
+http://localhost:8080/api/orders/search/findByCustomerEmailOrderByDateCreatedDesc?email=
+
+POST
+http://localhost:8080/api/checkout/purchase
+
+
+Generate keystore
+keytool -genkeypair -alias FullStackECommerceBackend -keystore src/main/resources/fullstackecommercebackend-keystore.p12 -keypass secret -storeType PKCS12 -storepass secret -keyalg RSA -keysize 2048 -validity 365 -dname "C=IN, ST=Maharashtra, L=Mumbai, O=FullStackECommerceBackend, OU=Demo, CN=localhost" -ext "SAN=dns:localhost"
+
+View keystore
+keytool -list -v -alias FullStackECommerceBackend -keystore src/main/resources/fullstackecommercebackend-keystore.p12 -storepass secret

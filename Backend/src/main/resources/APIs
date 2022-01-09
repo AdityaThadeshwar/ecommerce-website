@@ -1,7 +1,0 @@
-http://localhost:8080/api
-
-GET
-http://localhost:8080/api/orders/search/findByCustomerEmailOrderByDateCreatedDesc?email=
-
-POST
-http://localhost:8080/api/checkout/purchase
