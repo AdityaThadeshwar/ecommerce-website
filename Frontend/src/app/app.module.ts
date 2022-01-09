@@ -23,6 +23,7 @@ import {OKTA_CONFIG, OktaAuthGuard, OktaAuthModule, OktaCallbackComponent} from 
 
 import myAppConfig from './config/my-app-config';
 import {MembersPageComponent} from './components/members-page/members-page.component';
+import {OrderHistoryComponent} from './components/order-history/order-history.component';
 
 //Create an object onAuthRequired, when user tries to login and they haven't been authenticated, route them to login page
 const oktaConfig = Object.assign({
@@ -37,6 +38,7 @@ const oktaConfig = Object.assign({
 
 const routes: Routes = [
 	{path: 'members', component: MembersPageComponent, canActivate: [OktaAuthGuard]},
+	{path: 'order-history', component: OrderHistoryComponent, canActivate: [OktaAuthGuard]},
 	{path: 'login/callback', component: OktaCallbackComponent},
 	{path: 'login', component: LoginComponent},
 	{path: 'checkout', component: CheckoutComponent},
@@ -62,7 +64,8 @@ const routes: Routes = [
 		CheckoutComponent,
 		LoginComponent,
 		LoginStatusComponent,
-  MembersPageComponent
+  MembersPageComponent,
+  OrderHistoryComponent
 	],
 	imports: [
 		RouterModule.forRoot(routes),
