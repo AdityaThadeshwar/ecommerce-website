@@ -15,6 +15,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     LEFT OUTER JOIN customer
     ON orders.customer_id = customer.id
     WHERE customer.email= :email
+    ORDER BY orders.date_created desc;
      */
-    Page<Order> findByCustomerEmail(@Param("email") String email, Pageable pageable);
+    Page<Order> findByCustomerEmailOrderByDateCreatedDesc(@Param("email") String email, Pageable pageable);
 }
