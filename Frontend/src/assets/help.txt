@@ -1,0 +1,5 @@
+Start env. Uses default development environment properties
+npm start
+
+Use QA
+npm start -- --configuration=qa
