@@ -12,3 +12,6 @@ keytool -genkeypair -alias FullStackECommerceBackend -keystore src/main/resource
 
 View keystore
 keytool -list -v -alias FullStackECommerceBackend -keystore src/main/resources/fullstackecommercebackend-keystore.p12 -storepass secret
+
+https://stripe.com/docs/testing - Test card numbers
+https://dashboard.stripe.com/ - Check payments done
