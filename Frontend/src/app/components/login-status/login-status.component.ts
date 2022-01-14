@@ -12,6 +12,7 @@ export class LoginStatusComponent implements OnInit {
 	userFullName: string;
 
 	storage: Storage = sessionStorage;
+	cartStorage: Storage = localStorage;
 
 	constructor(private oktaAuthService: OktaAuthService) {
 	}
@@ -50,7 +51,13 @@ export class LoginStatusComponent implements OnInit {
 	}
 
 	logout() {
+
 		// Terminates the session with Okta and removes current tokens.
 		this.oktaAuthService.signOut();
+
+		//clear storage on logout
+		this.storage.clear()
+		this.cartStorage.clear();
+
 	}
 }
