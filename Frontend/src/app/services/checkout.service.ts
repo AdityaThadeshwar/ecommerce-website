@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Purchase} from "../common/purchase";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
+import {PaymentInfo} from "../common/payment-info";
 
 @Injectable({
 	providedIn: 'root'
@@ -10,11 +11,19 @@ import {environment} from "../../environments/environment";
 export class CheckoutService {
 
 	private purchaseUrl = environment.applicationUrl + '/checkout/purchase';
+	private paymentIntentUrl = environment.applicationUrl + '/checkout/payment-intent';
 
-	constructor( private httpClient: HttpClient) { }
+	constructor(private httpClient: HttpClient) {
+	}
 
 	placeOrder(purchase: Purchase): Observable<any> {
 
 		return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);
+	}
+
+	//Make REST API calls to backend
+	createPaymentIntent(paymentInfo: PaymentInfo): Observable<any> {
+
+		return this.httpClient.post<{PaymentInfo}>(this.paymentIntentUrl, paymentInfo);
 	}
 }

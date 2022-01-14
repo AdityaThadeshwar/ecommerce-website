@@ -25,6 +25,7 @@
 		"@okta/okta-signin-widget": "^5.10.1",
 		"bootstrap": "^5.0.2",
 		"rxjs": "~6.6.0",
+		"stripe": "^8.197.0",
 		"tslib": "^2.2.0",
 		"zone.js": "~0.11.4"
 	},
