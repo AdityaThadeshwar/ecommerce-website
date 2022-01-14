@@ -43,6 +43,9 @@ export class CheckoutComponent implements OnInit {
 	cardElement: any;
 	displayError: any = "";
 
+	// disable purchase button handling
+	isDisabled: boolean = false;
+
 	constructor(private formBuilder: FormBuilder,
 				private shopFormService: ShopFormService,
 				private cartService: CartService,
@@ -202,6 +205,10 @@ export class CheckoutComponent implements OnInit {
 
 		if (!this.checkoutFormGroup.invalid && this.displayError.textContent === "") {
 
+			//Disable purchase button
+			this.isDisabled = true;
+
+			//REST API call
 			this.checkoutService.createPaymentIntent(this.paymentInfo).subscribe(
 				(paymentIntentResponse) => {
 					this.stripe.confirmCardPayment(paymentIntentResponse.client_secret,
@@ -225,19 +232,31 @@ export class CheckoutComponent implements OnInit {
 							if (result.error) {
 								//inform there was an error
 								alert(`There was an error: ${result.error.message}`);
+
+								// enable submit button
+								// @ts-ignore
+								this.isDisabled = false;
 							} else {
 								//Call REST API via CheckoutService
 								// @ts-ignore
 								this.checkoutService.placeOrder(purchase).subscribe({
 									next: response => {
-										alert(`Your order has been received. \nYOrder tracking numbner: ${response.orderTrackingNumber}`);
+										alert(`Your order has been received. \nOrder tracking number: ${response.orderTrackingNumber}`);
 
 										//reset card
 										// @ts-ignore
 										this.resetCart();
+
+										// enable submit button
+										// @ts-ignore
+										this.isDisabled = false;
 									},
 									error: err => {
 										alert(`There was an error: ${err.message}`);
+
+										// enable submit button
+										// @ts-ignore
+										this.isDisabled = false;
 									}
 								})
 							}
