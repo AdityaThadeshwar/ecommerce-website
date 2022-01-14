@@ -183,6 +183,7 @@ export class CheckoutComponent implements OnInit {
 		// compute payment info
 		this.paymentInfo.amount = Math.round(this.totalPrice * 100);
 		this.paymentInfo.currency = "USD";
+		this.paymentInfo.receiptEmail = purchase.customer.email;
 
 		// call REST api via CheckoutService
 		// this.checkoutService.placeOrder(purchase).subscribe({
